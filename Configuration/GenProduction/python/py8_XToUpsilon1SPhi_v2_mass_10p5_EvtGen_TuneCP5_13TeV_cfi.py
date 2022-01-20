@@ -4,6 +4,7 @@
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
+from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 
 generator = cms.EDFilter("Pythia8GeneratorFilter",
     pythiaPylistVerbosity = cms.untracked.int32(0),
@@ -58,7 +59,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             'Bottomonium:gg2bbbar(3PJ)[3S1(8)]g = on',
             'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on',
             'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on',
-            'PhaseSpace:pTHatMin = 2.', #minimum transverse momenta in the rest frame of the process
+            'PhaseSpace:pTHatMin = 10.', #minimum transverse momenta in the rest frame of the process
             '10551:m0 = 10.5',  
             '10551:mWidth = 0.0',      
             '10551:onMode = off',
@@ -77,7 +78,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 
 pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(10551),
-    MinPt = cms.untracked.vdouble(0.0),
+    MinPt = cms.untracked.vdouble(15.0),
     MinEta = cms.untracked.vdouble(-9999.0),
     MaxEta = cms.untracked.vdouble(9999.0),
     Status = cms.untracked.vint32(2)
